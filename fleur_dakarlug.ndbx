@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="16" type="file" uuid="c528269c-9eca-4e6d-84c3-b628d59b8687">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <node name="root" prototype="core.network" renderedChild="rotate1">
+        <node name="angle1" position="-5.00,3.00" prototype="math.angle"/>
+        <node name="point1" position="-7.00,1.00" prototype="corevector.point"/>
+        <node name="polygon1" position="-11.00,-1.00" prototype="corevector.polygon">
+            <port name="sides" type="int" value="10"/>
+        </node>
+        <node name="rotate1" position="-11.00,5.00" prototype="corevector.rotate"/>
+        <node name="textpath1" position="-16.00,2.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="DakarLUG"/>
+            <port name="align" type="string" value="LEFT"/>
+            <port name="position" type="point" value="10.00,20.00"/>
+        </node>
+        <conn input="point1.value" output="polygon1"/>
+        <conn input="angle1.point2" output="point1"/>
+        <conn input="textpath1.position" output="polygon1"/>
+        <conn input="rotate1.shape" output="textpath1"/>
+        <conn input="rotate1.angle" output="angle1"/>
+        <conn input="rotate1.origin" output="polygon1"/>
+    </node>
+</ndbx>
